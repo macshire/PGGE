@@ -67,15 +67,16 @@ public class ThirdPersonCamera : MonoBehaviour
     void Start()
     {
         //Set GameConstants class so other objects can use
-        GameConstants.CameraPositionOffset = mPositionOffset;
+        //GameConstants.CameraPositionOffset = mPositionOffset;
         //mThirdPersonCamera = new TPCTrack(transform, mPlayer);
         //mThirdPersonCamera = new TPCFollowTrackPosition(transform, mPlayer);
-        mThirdPersonCamera = new TPCFollowTrackPositionAndRotation(transform,
-        mPlayer);
+        //mThirdPersonCamera = new TPCFollowTrackPositionAndRotation(transform,
+        //mPlayer);
         // Set the game constant parameters to the GameConstants class.
         GameConstants.Damping = mDamping;
         GameConstants.CameraPositionOffset = mPositionOffset;
         GameConstants.CameraAngleOffset = mAngleOffset;
+        mThirdPersonCamera = new TPCTopDown(transform, mPlayer);
 
     }
     void LateUpdate()
@@ -106,6 +107,22 @@ public abstract class TPCFollow : TPCBase
         Vector3 position = Vector3.Lerp(mCameraTransform.position,
         desiredPosition, Time.deltaTime * GameConstants.Damping);
         mCameraTransform.position = position;
+    }
+}
+
+public class TPCTopDown : TPCBase
+{
+    public TPCTopDown(Transform cameraTransform, Transform
+   playerTransform)
+    : base(cameraTransform, playerTransform)
+    {
+    }
+    public override void Update()
+    {
+        Vector3 targetPos = mPlayerTransform.position;
+        Vector3 desiredPosition = targetPos + GameConstants.CameraPositionOffset;
+        mCameraTransform.position = Vector3.Lerp(mCameraTransform.position, desiredPosition, GameConstants.Damping);
+        mCameraTransform.rotation = Quaternion.Euler(90, 0, 0);
     }
 }
 

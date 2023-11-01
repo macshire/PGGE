@@ -170,7 +170,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mCharacterController: {fileID: 0}
   mAnimator: {fileID: 1758586917}
-  mWalkSpeed: 1
+  mWalkSpeed: 2
   mRotationSpeed: 150
 --- !u!1 &705507993
 GameObject:
@@ -364,7 +364,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mPlayer: {fileID: 1758586914}
-  mPositionOffset: {x: 0, y: 2, z: -2.5}
+  mPositionOffset: {x: 0, y: 10, z: 0}
   mAngleOffset: {x: 0, y: 0, z: 0}
   mDamping: 10
 --- !u!1 &1386676975
