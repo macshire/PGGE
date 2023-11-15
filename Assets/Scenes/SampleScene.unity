@@ -364,9 +364,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mPlayer: {fileID: 1758586914}
-  mPositionOffset: {x: 0, y: 10, z: 0}
+  mPositionOffset: {x: 0, y: 2, z: -3}
   mAngleOffset: {x: 0, y: 0, z: 0}
   mDamping: 10
+  mMinPitch: -30
+  mMaxPitch: 30
+  mRotationSpeed: 50
+  mCameraType: 2
 --- !u!1 &1008714087
 GameObject:
   m_ObjectHideFlags: 0
